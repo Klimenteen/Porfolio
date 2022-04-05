@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let itemClass = this.parentNode.className
 
             for (i = 0; i < skillsContent.length; i++) {
+
                 skillsContent[i].className = 'skills_content skills_close'
 
             }
@@ -63,6 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
             modalCloses = document.querySelectorAll('.services_modal-close')
         let modal = function(modalClick) {
             modalViews[modalClick].classList.add('active-modal')
+            alsoClose = document.querySelector('.active-modal')
+            alsoClose.addEventListener('click',()=>{
+                modalViews.forEach(modalView => {
+                    modalView.classList.remove('active-modal')
+
+                });
+            })
         }
         modalBtns.forEach((modalBtn, i) => {
             modalBtn.addEventListener('click', () => {
